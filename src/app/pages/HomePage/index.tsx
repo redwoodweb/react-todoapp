@@ -51,7 +51,7 @@ export function HomePage() {
           <Todolist>
             <Todoitem>
               <TodoCheck type="checkbox" />
-              할일ㅁㅁㅁ
+              할일리스트1
             </Todoitem>
           </Todolist>
         </Box>
