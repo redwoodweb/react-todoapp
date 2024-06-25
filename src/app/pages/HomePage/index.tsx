@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import TodoInput from 'app/components/todoinput';
 import styled from 'styled-components';
+import TodoInput from 'app/components/TodoInput';
+import TodoItem from 'app/components/TodoItem';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -51,10 +52,38 @@ export function HomePage() {
           <Title>할일</Title>
           <TodoInput />
           <Todolist>
-            <Todoitem>
-              <TodoCheck type="checkbox" />
-              할일리스트1
-            </Todoitem>
+            <TodoItem
+              todo={{
+                id: '1',
+                completed: false,
+                content: '할일 리스트1',
+                editing: false,
+              }}
+            ></TodoItem>
+            <TodoItem
+              todo={{
+                id: '2',
+                completed: false,
+                content: '할일 리스트2',
+                editing: false,
+              }}
+            ></TodoItem>
+            <TodoItem
+              todo={{
+                id: '3',
+                completed: false,
+                content: '할일 리스트3',
+                editing: false,
+              }}
+            ></TodoItem>
+            <TodoItem
+              todo={{
+                id: '4',
+                completed: false,
+                content: '할일 리스트4',
+                editing: false,
+              }}
+            ></TodoItem>
           </Todolist>
         </Box>
       </Wrapper>
