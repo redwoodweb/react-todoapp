@@ -27,20 +27,33 @@ const Title = styled.h1`
 
 const Todolist = styled.div``;
 
-const Todoitem = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 15px 10px;
-  width: 100%;
-  font-size: 1.2em;
-  border-bottom: 1px solid #eee;
-`;
-
-const TodoCheck = styled.input`
-  margin-right: 15px;
-`;
-
 export function HomePage() {
+  const [todoList, setTodoList] = React.useState<ItodoItem[]>([
+    {
+      id: '1',
+      completed: false,
+      content: '할일 리스트1',
+      editing: false,
+    },
+    {
+      id: '2',
+      completed: false,
+      content: '할일 리스트2',
+      editing: false,
+    },
+    {
+      id: '3',
+      completed: false,
+      content: '할일 리스트3',
+      editing: false,
+    },
+    {
+      id: '4',
+      completed: false,
+      content: '할일 리스트4',
+      editing: false,
+    },
+  ]);
   return (
     <>
       <Helmet>
@@ -50,40 +63,15 @@ export function HomePage() {
       <Wrapper>
         <Box>
           <Title>할일</Title>
-          <TodoInput />
+          <TodoInput
+            setTodoListComp={(todo: ItodoItem) =>
+              setTodoList([todo, ...todoList])
+            }
+          />
           <Todolist>
-            <TodoItem
-              todo={{
-                id: '1',
-                completed: false,
-                content: '할일 리스트1',
-                editing: false,
-              }}
-            ></TodoItem>
-            <TodoItem
-              todo={{
-                id: '2',
-                completed: false,
-                content: '할일 리스트2',
-                editing: false,
-              }}
-            ></TodoItem>
-            <TodoItem
-              todo={{
-                id: '3',
-                completed: false,
-                content: '할일 리스트3',
-                editing: false,
-              }}
-            ></TodoItem>
-            <TodoItem
-              todo={{
-                id: '4',
-                completed: false,
-                content: '할일 리스트4',
-                editing: false,
-              }}
-            ></TodoItem>
+            {todoList.map(todo => (
+              <TodoItem todo={todo} />
+            ))}
           </Todolist>
         </Box>
       </Wrapper>
