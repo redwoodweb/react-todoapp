@@ -1,6 +1,6 @@
-import TodoInput from 'app/components/todoinput';
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
+import TodoInput from 'app/components/todoinput';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -43,8 +43,8 @@ export function HomePage() {
   return (
     <>
       <Helmet>
-        <title>HomePage</title>
-        <meta name="description" content="A to do application homepage" />
+        a<title>HomePage</title>
+        <meta name="descaaaription" content="A to do application homepage" />
       </Helmet>
       <Wrapper>
         <Box>
