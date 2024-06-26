@@ -31,7 +31,7 @@ export default function TodoInput({
         value={content}
         onChange={e => setContent(e.target.value)}
         onKeyDown={e => {
-          if (content == '') return;
+          if (content === '') return;
           if (e.key !== 'Enter' && e.key !== 'NumberEnter') return;
           setTodoListComp({
             id: '0',
