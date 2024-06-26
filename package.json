@@ -118,5 +118,6 @@
         "statements": 90
       }
     }
-  }
+  },
+  "devDependencies": {}
 }
