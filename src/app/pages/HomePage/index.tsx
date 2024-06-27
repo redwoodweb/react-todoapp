@@ -27,28 +27,47 @@ const Title = styled.h1`
 
 const TodoList = styled.div``;
 
-const testContent: ItodoItem[] = [
-  {
-    id: '0',
-    completed: false,
-    content: 'this is todo list',
-    editing: false,
-  },
-  {
-    id: '0',
-    completed: false,
-    content: 'this is todo list',
-    editing: false,
-  },
-  {
-    id: '0',
-    completed: false,
-    content: 'this is todo list',
-    editing: false,
-  },
-];
-
+// const testContent: ItodoItem[] = [
+//   {
+//     id: '0',
+//     completed: false,
+//     content: 'this is todo list',
+//     editing: false,
+//   },
+//   {
+//     id: '1',
+//     completed: false,
+//     content: 'this is todo list',
+//     editing: false,
+//   },
+//   {
+//     id: '2',
+//     completed: false,
+//     content: 'this is todo list',
+//     editing: false,
+//   },
+// ];
 export function HomePage() {
+  const [todoList, setTodoList] = React.useState<ItodoItem[]>([
+    {
+      id: '0',
+      completed: false,
+      content: 'this is todo list',
+      editing: false,
+    },
+    {
+      id: '1',
+      completed: true,
+      content: 'this is todo list1',
+      editing: false,
+    },
+    {
+      id: '2',
+      completed: false,
+      content: 'this is todo list2',
+      editing: false,
+    },
+  ]);
   return (
     <>
       <Helmet>
@@ -58,9 +77,12 @@ export function HomePage() {
       <Wrapper>
         <Box>
           <Title>TO DO List APP</Title>
-          <TodoInput></TodoInput>
+          {/* <TodoInput setTodoList={(todo: ItodoItem) => setTodoList(todo, ...todoList)}></TodoInput>  전달방식 확인 prop 상위에서 하위로 하위에서 상위로 전달하는 방식 확인*/}
+          <TodoInput
+            setTodoListComp={(todo: ItodoItem) => console.log(todo)}
+          ></TodoInput>
           <TodoList>
-            {testContent.map(todo => (
+            {todoList.map(todo => (
               <TodoItem todo={todo}></TodoItem>
             ))}
           </TodoList>
