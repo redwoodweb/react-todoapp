@@ -82,8 +82,8 @@ export function HomePage() {
             setTodoListComp={(todo: ItodoItem) => console.log(todo)}
           ></TodoInput>
           <TodoList>
-            {todoList.map(todo => (
-              <TodoItem todo={todo}></TodoItem>
+            {todoList.map((todo, index) => (
+              <TodoItem todo={todo} key={index}></TodoItem>
             ))}
           </TodoList>
         </Box>
