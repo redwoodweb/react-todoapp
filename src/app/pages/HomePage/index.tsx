@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components';
 import TodoItem from 'app/components/TodoItem';
+import TodoInput from 'app/components/TodoInput';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -26,6 +27,27 @@ const Title = styled.h1`
 
 const TodoList = styled.div``;
 
+const testContent: ItodoItem[] = [
+  {
+    id: '0',
+    completed: false,
+    content: 'this is todo list',
+    editing: false,
+  },
+  {
+    id: '0',
+    completed: false,
+    content: 'this is todo list',
+    editing: false,
+  },
+  {
+    id: '0',
+    completed: false,
+    content: 'this is todo list',
+    editing: false,
+  },
+];
+
 export function HomePage() {
   return (
     <>
@@ -36,8 +58,11 @@ export function HomePage() {
       <Wrapper>
         <Box>
           <Title>TO DO List APP</Title>
+          <TodoInput></TodoInput>
           <TodoList>
-            <TodoItem></TodoItem>
+            {testContent.map(todo => (
+              <TodoItem todo={todo}></TodoItem>
+            ))}
           </TodoList>
         </Box>
       </Wrapper>
