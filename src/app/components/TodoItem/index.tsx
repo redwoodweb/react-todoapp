@@ -25,7 +25,7 @@ const TodoContent = styled.div<{
 export default function TodoItem({ todo }: { todo: ItodoItem }) {
   return (
     <Box>
-      <CheckBox></CheckBox>
+      <CheckBox checked={todo.completed}></CheckBox>
       <Block marginRight="20px"></Block>
       <TodoContent checked={todo.completed}>{todo.content}</TodoContent>
     </Box>

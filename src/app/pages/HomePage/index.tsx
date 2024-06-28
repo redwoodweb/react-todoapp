@@ -5,6 +5,7 @@ import TodoItem from 'app/components/TodoItem';
 import TodoInput from 'app/components/TodoInput';
 
 const Wrapper = styled.div`
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -25,7 +26,11 @@ const Title = styled.h1`
   padding: 15px 10px;
 `;
 
-const TodoList = styled.div``;
+const TodoList = styled.div`
+  overflow: auto;
+  height: calc(100% - 100px);
+  background-color: yellowgreen;
+`;
 
 // const testContent: ItodoItem[] = [
 //   {
@@ -51,7 +56,7 @@ export function HomePage() {
   const [todoList, setTodoList] = React.useState<ItodoItem[]>([
     {
       id: '0',
-      completed: false,
+      completed: true,
       content: 'this is todo list',
       editing: false,
     },
@@ -77,10 +82,11 @@ export function HomePage() {
       <Wrapper>
         <Box>
           <Title>TO DO List APP</Title>
-          {/* <TodoInput setTodoList={(todo: ItodoItem) => setTodoList(todo, ...todoList)}></TodoInput>  전달방식 확인 prop 상위에서 하위로 하위에서 상위로 전달하는 방식 확인*/}
           <TodoInput
-            setTodoListComp={(todo: ItodoItem) => console.log(todo)}
-          ></TodoInput>
+            setTodoListComp={(todo: ItodoItem) =>
+              setTodoList([todo, ...todoList])
+            }
+          />
           <TodoList>
             {todoList.map((todo, index) => (
               <TodoItem todo={todo} key={index}></TodoItem>
