@@ -25,6 +25,7 @@ export default function CheckBox({
   checked?: boolean;
   onClick?: () => void;
 }) {
+  /*개인 작업 수정 코드*/
   const [checkedRound, setCheckedRound] = React.useState<boolean>(false);
   onClick = () => {
     if (checkedRound === true) {
