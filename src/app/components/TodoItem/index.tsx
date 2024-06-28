@@ -11,13 +11,13 @@ const Box = styled.div`
   border-bottom: 1px solid #eeee;
 `;
 
-const TodoContent = styled.span<{ checked?: boolean }>`
+const TodoContent = styled.div<{
+  checked?: boolean;
+}>`
   overflow: hidden;
   text-overflow: ellipsis;
   word-wrap: break-word;
-  display: -webkit-box;
-  --webkit-line-clamp: 3;
-  --webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   cursor: text;
   text-decoration: ${props => (props.checked ? 'line-through' : 'init')};
 `;
@@ -25,8 +25,8 @@ const TodoContent = styled.span<{ checked?: boolean }>`
 export default function TodoItem({ todo }: { todo: ItodoItem }) {
   return (
     <Box>
-      <CheckBox checked={todo.completed} />
-      <Block marginLeft="10px" />
+      <CheckBox checked={todo.completed}></CheckBox>
+      <Block marginRight="20px"></Block>
       <TodoContent checked={todo.completed}>{todo.content}</TodoContent>
     </Box>
   );

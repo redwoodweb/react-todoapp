@@ -1,23 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-//eslint를 무시하는 코드
-// eslint-disable-next-line
 const Box = styled.div`
   display: flex;
   align-items: center;
-  padding: 15px 25px;
+  flex-direction: column;
   width: 100%;
   font-size: 1.1em;
-  border-bottom: 1px solid #eeee;
+  border-bottom: 1px solid #eee;
 `;
 
-// eslint-disable-next-line
 const Input = styled.input`
   width: 100%;
   border: none;
-  outline: 0;
+  outline: none;
 `;
+
 export default function TodoInput({
   setTodoListComp,
 }: {
@@ -27,16 +25,17 @@ export default function TodoInput({
   return (
     <Box>
       <Input
-        placeholder="할일을 입력해주세요."
         value={content}
-        onChange={e => setContent(e.target.value)}
-        onKeyDown={e => {
-          if (content == '') return;
-          if (e.key !== 'Enter' && e.key !== 'NumberEnter') return;
+        onChange={e => {
+          setContent(e.target.value);
+        }}
+        onKeyUp={e => {
+          if (content === '') return;
+          if (e.key !== 'Enter' && e.key !== 'NumnberEnter') return;
           setTodoListComp({
             id: '0',
-            content: content,
             completed: false,
+            content: content,
             editing: false,
           });
           setContent('');
