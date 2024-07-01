@@ -1,16 +1,15 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components';
-import TodoItem from 'app/components/TodoItem';
 import TodoInput from 'app/components/TodoInput';
+import TodoItem from 'app/components/TodoItem';
 
 const Wrapper = styled.div`
-  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   background-color: #eee;
 `;
 
@@ -18,7 +17,7 @@ const Box = styled.div`
   width: 400px;
   height: 600px;
   background-color: white;
-  box-shadow: 0 20px 100px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 20px 100px -60px rgba(0, 0, 0, 0.18);
 `;
 
 const Title = styled.h1`
@@ -26,72 +25,54 @@ const Title = styled.h1`
   padding: 15px 10px;
 `;
 
-const TodoList = styled.div`
-  overflow: auto;
-  height: calc(100% - 100px);
-  background-color: yellowgreen;
-`;
+const Todolist = styled.div``;
 
-// const testContent: ItodoItem[] = [
-//   {
-//     id: '0',
-//     completed: false,
-//     content: 'this is todo list',
-//     editing: false,
-//   },
-//   {
-//     id: '1',
-//     completed: false,
-//     content: 'this is todo list',
-//     editing: false,
-//   },
-//   {
-//     id: '2',
-//     completed: false,
-//     content: 'this is todo list',
-//     editing: false,
-//   },
-// ];
 export function HomePage() {
   const [todoList, setTodoList] = React.useState<ItodoItem[]>([
     {
-      id: '0',
-      completed: true,
-      content: 'this is todo list',
-      editing: false,
-    },
-    {
       id: '1',
-      completed: true,
-      content: 'this is todo list1',
+      completed: false,
+      content: '할일 리스트1',
       editing: false,
     },
     {
       id: '2',
       completed: false,
-      content: 'this is todo list2',
+      content: '할일 리스트2',
+      editing: false,
+    },
+    {
+      id: '3',
+      completed: false,
+      content: '할일 리스트3',
+      editing: false,
+    },
+    {
+      id: '4',
+      completed: false,
+      content: '할일 리스트4',
       editing: false,
     },
   ]);
   return (
     <>
       <Helmet>
-        <title>HomePage</title>
+        a<title>HomePage</title>
         <meta name="descaaaription" content="A to do application homepage" />
       </Helmet>
       <Wrapper>
         <Box>
-          <Title>TO DO List APP</Title>
+          <Title>할일</Title>
           <TodoInput
             setTodoListComp={(todo: ItodoItem) =>
               setTodoList([todo, ...todoList])
             }
           />
-          <TodoList>
-            {todoList.map((todo, index) => (
-              <TodoItem todo={todo} key={index}></TodoItem>
+          <Todolist>
+            {todoList.map(todo => (
+              <TodoItem todo={todo} />
             ))}
-          </TodoList>
+          </Todolist>
         </Box>
       </Wrapper>
     </>
