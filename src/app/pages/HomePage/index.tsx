@@ -57,7 +57,7 @@ export function HomePage() {
   return (
     <>
       <Helmet>
-        a<title>HomePage</title>
+        <title>ToDo App</title>
         <meta name="descaaaription" content="A to do application homepage" />
       </Helmet>
       <Wrapper>

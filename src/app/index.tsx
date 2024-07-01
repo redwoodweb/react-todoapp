@@ -21,7 +21,7 @@ export function App() {
   return (
     <BrowserRouter>
       <Helmet
-        titleTemplate="%s - to do app"
+        titleTemplate="%s - 나만의 할일 리스트를 만들자"
         defaultTitle="to do app"
         htmlAttributes={{ lang: i18n.language }}
       >
